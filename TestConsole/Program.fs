@@ -296,6 +296,27 @@ let class_test() =
     bowser.Run
     bowser.Bark
 
+
+let fuc_argument() = 
+
+    let apply (f: int -> int -> int) x y = f x y
+
+    let mul x y = x * y
+
+    apply mul 10 20
+
+let composition_test() =
+    let add x y = x + y
+    let times x y = x * y
+
+    let result = 100 |> add 3 |> times 12
+    printfn "The composition result is %i" result
+
+    let addAndMultiply = add 3 >> times 15
+    let result = addAndMultiply 100
+    printfn "The composition result is %i" result
+
+
 [<EntryPoint>]
 let main argv =
     //printName()
@@ -314,6 +335,7 @@ let main argv =
     //tuple_test()
     //record_test()
     //seq_test()
-    map_test()
+    //map_test()
+    composition_test()
     0 // return an integer exit code
 
