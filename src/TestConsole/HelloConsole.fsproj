@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Scripts\ActivePattern.fs" />
     <Compile Include="Scripts\StrategyPattern.fs" />
     <Compile Include="Scripts\Generic.fs" />
     <Compile Include="Program.fs" />
