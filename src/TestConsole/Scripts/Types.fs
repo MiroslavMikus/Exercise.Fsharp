@@ -16,7 +16,6 @@ printfn "Structural equality %b" (person = person3)
 
 
 ////// Discriminated Union
-
 type Shape = 
     | Square of float
     | Rectangle of float * float
@@ -35,3 +34,35 @@ let PrintDrawing (shape : Shape) =
     | Circle f -> sprintf "We have circle %f" f 
 
 let d = drawings |> Array.map (fun drawing -> PrintDrawing drawing)
+
+////// Class
+type Customer(forename : string, surename : string) =
+    do
+        printfn "Some ctor logic here"
+
+    member this.Forename = forename
+    member this.Surename = surename
+
+let someTuple = ("Some", "Customer")
+let customer = Customer someTuple
+
+type MutableCustomer(forename : string, surename : string) =
+    member val Forename = forename with get, set
+    member val Surename = surename with get, set
+
+////// Interface
+type ICustomer =
+    abstract member Forename : string
+    abstract member Surename : string
+    abstract member Fullname : string
+
+type CustomerWithInterface(forename : string, surename : string) =
+    
+    interface ICustomer with
+        member __.Forename = forename
+        member __.Surename = surename
+        member __.Fullname = sprintf "%s %s" forename surename
+
+let customerInterface = CustomerWithInterface("some", "customer")
+
+let fullName = (customerInterface :> ICustomer).Fullname
