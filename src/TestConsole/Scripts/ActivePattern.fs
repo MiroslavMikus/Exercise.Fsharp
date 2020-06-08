@@ -1,6 +1,8 @@
 ﻿#if !INTERACTIVE
 module ActivePattern
 #endif
+
+// Create your own 'Matcher'
 let (|Int|_|) (str:string) = 
     match System.Int32.TryParse(str) with
     | (true, int) -> Some(int)

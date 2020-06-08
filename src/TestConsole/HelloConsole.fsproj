@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Scripts\Options.fs" />
+    <Compile Include="Scripts\Types.fs" />
+    <Compile Include="Scripts\Sequences.fs" />
+    <Compile Include="Scripts\Arrays.fs" />
     <Compile Include="Scripts\AsyncWorkflow.fs" />
     <Compile Include="Scripts\Measurements.fs" />
     <Compile Include="Scripts\ActivePattern.fs" />
