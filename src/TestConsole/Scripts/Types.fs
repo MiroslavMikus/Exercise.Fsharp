@@ -66,3 +66,30 @@ type CustomerWithInterface(forename : string, surename : string) =
 let customerInterface = CustomerWithInterface("some", "customer")
 
 let fullName = (customerInterface :> ICustomer).Fullname
+
+////// Extension method / interfaces
+
+type IAnimal = 
+   abstract member MakeNoise : unit -> string
+
+let showTheNoiseAnAnimalMakes (animal:IAnimal) = 
+   animal.MakeNoise() |> printfn "Making noise %s"
+
+type Cat = Felix | Socks
+type Dog = Butch | Lassie 
+
+type Cat with
+    member this.AsAnimal = 
+         { new IAnimal 
+           with member a.MakeNoise() = "Meow" }
+
+type Dog with
+    member this.AsAnimal = 
+         { new IAnimal 
+           with member a.MakeNoise() = "Woof" }
+
+let dog = Lassie
+showTheNoiseAnAnimalMakes (dog.AsAnimal)
+
+let cat = Felix
+showTheNoiseAnAnimalMakes (cat.AsAnimal)
