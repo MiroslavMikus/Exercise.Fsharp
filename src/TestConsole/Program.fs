@@ -336,6 +336,7 @@ let main argv =
     //record_test()
     //seq_test()
     //map_test()
-    composition_test()
+    //composition_test()
+
     0 // return an integer exit code
 

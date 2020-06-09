@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Scripts\Actors.fs" />
     <Compile Include="Scripts\TypeProviders.fs" />
     <Compile Include="Scripts\Options.fs" />
     <Compile Include="Scripts\Types.fs" />
