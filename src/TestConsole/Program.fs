@@ -154,7 +154,7 @@ type someEnum =
 | microsoft = 2
 
 let enum_test() = 
-    let enum = someEnum.navision
+    let enum = someEnum.microsoft
 
     match enum with
     | sap -> printfn "SAP"
