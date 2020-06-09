@@ -19,9 +19,13 @@ let evenSquares = Array.filter IsEven squares
 
 
 // c# select
-
 let printSquares min max =
     let square n = n * n
     [|min..max|]
     |> Array.map square
+
+let Sum min max = 
+    [|min..max|]
+    |> Array.map (fun a -> a + 1)
+    |> Array.reduce ( fun a b-> a + b)
 
