@@ -24,7 +24,7 @@ let simpleSleepWorkflow = async {
     printfn "End workflow at %O" DateTime.Now.TimeOfDay
     }
 
-let nestedWorkflow = async{
+let nestedWorkflow = async {
     printfn "Start parent workflow"
     let! childWorkflow = Async.StartChild simpleSleepWorkflow
 
