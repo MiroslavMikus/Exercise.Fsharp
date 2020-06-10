@@ -5,6 +5,8 @@ module Actors
 open System
 open System.Threading
 
+// slow console example
+
 let slowConsoleWrite msg =
     msg |> String.iter (fun ch->
         System.Threading.Thread.Sleep(3)
@@ -56,5 +58,14 @@ let serializedExample =
         |> Async.RunSynchronously
         |> ignore
 
+// agent with response example
+type EchoMessage = { Name: string; Channel: string AsyncReplyChannel }
 
+let echo = MailboxProcessor.Start(fun inbox -> async {
+    while true do 
+        let! msg = inbox.Receive()
+        msg.Channel.Reply("Hello " + msg.Name)
+    })
+
+let result = echo.PostAndAsyncReply(fun ch -> { Name = "World"; Channel = ch }) |> Async.RunSynchronously
 

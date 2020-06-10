@@ -8,7 +8,7 @@
   <ItemGroup>
     <Compile Include="Scripts\Reflection.fs" />
     <Compile Include="Scripts\Actors.fs" />
-    <Compile Include="Scripts\TypeProviders.fsx" />
+    <Compile Include="Scripts\TypeProviders.fs" />
     <Compile Include="Scripts\Options.fs" />
     <Compile Include="Scripts\Types.fs" />
     <Compile Include="Scripts\Sequences.fs" />

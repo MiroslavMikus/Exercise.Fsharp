@@ -59,3 +59,24 @@ let workflowInParallel =
     [sleep1; sleep2]
         |> Async.Parallel
         |> Async.RunSynchronously
+
+// child task example
+let childExample() = async {
+    let startTime =  DateTime.Now.TimeOfDay
+
+    let! sleepWork1 = sleepWorkflow 2000 |> Async.StartChild
+    let! sleepWork2 = sleepWorkflow 5000 |> Async.StartChild
+    let! sleepWork3 = sleepWorkflow 5000 |> Async.StartChild
+    let! sleepWork4 = sleepWorkflow 5000 |> Async.StartChild
+
+    do! sleepWork1
+    do! sleepWork2
+    do! sleepWork3
+    do! sleepWork4
+    
+    printfn "Done"
+
+    printfn "End workflow in %O" (DateTime.Now.TimeOfDay - startTime)
+    }
+
+childExample() |> Async.RunSynchronously

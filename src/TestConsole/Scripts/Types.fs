@@ -20,10 +20,13 @@ type Shape =
     | Square of float
     | Rectangle of float * float
     | Circle of float
+    member this.Add a b = a + b // shape member
 
 let square = Square 3.4
 let rectangle = Rectangle (2.2, 1.9)
 let circle = Circle 1.0
+
+printfn "%i" (circle.Add 3 2)
 
 let drawings = [|square; rectangle; circle |]
 

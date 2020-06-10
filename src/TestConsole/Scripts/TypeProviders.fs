@@ -3,12 +3,12 @@ module TypeProviders
 #endif
 
 // note -> change your path here..
-#r "C:/Users/miros/.nuget/packages/fsharp.data/3.3.3/lib/net45/FSharp.Data.dll"
+//#r "C:/Users/miros/.nuget/packages/fsharp.data/3.3.3/lib/net45/FSharp.Data.dll"
 
 open FSharp.Data
 
 let wb = WorldBankData.GetDataContext()
-wb.Countries.``Slovak Republic``.Code
+printfn "%A" wb.Countries.``Slovak Republic``.Code
 
 type ToDo = { UserId : int ; Title : string ; Completed : bool }
 
@@ -34,5 +34,6 @@ printfn "API"
 castApiTodos() |> printTodos
 printfn "File"
 castFileTodos() |> printTodos
+
 
 
