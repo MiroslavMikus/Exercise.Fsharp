@@ -11,10 +11,9 @@ type Timed<'a> =
     member this.Duration = this.Stopped - this.Started
 
 module Untimed = 
-    let map f x = 
-        { Started = x.Started; Stopped = x.Stopped; Result = x.Result }
+    let map f timed = { Started = timed.Started; Stopped = timed.Stopped; Result = f timed.Result }
 
-    let withResult newResult x = map (fun _ -> newResult) x
+    let withResult newResult timed = map (fun _ -> newResult) timed
 
 module Timed =
     let capture clock x =
@@ -29,7 +28,7 @@ module Timed =
     let timeOn clock f x = x |> capture clock |> map clock f
 
 module Clocks = 
-    let machineClock() = DateTimeOffset.Now
+    let machineClock () = DateTimeOffset.Now
 
     let acClock (start : DateTimeOffset) rate () =
         let now = DateTimeOffset.Now
