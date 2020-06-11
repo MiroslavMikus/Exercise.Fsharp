@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Scripts\TimedOperation.fs" />
+    <Compile Include="Scripts\StateMachine.fs" />
     <Compile Include="Scripts\Reflection.fs" />
     <Compile Include="Scripts\Actors.fs" />
     <Compile Include="Scripts\TypeProviders.fs" />
@@ -21,6 +22,8 @@
     <Compile Include="Scripts\Generic.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="FSharp.Data" Version="3.3.3" />
